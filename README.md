@@ -1,93 +1,66 @@
-# GameHub — Minha Biblioteca Gamer
+<div align="center">
 
-Aplicativo mobile feito com React Native e Expo para organizar a biblioteca pessoal de videogames. Trabalho individual da disciplina de desenvolvimento mobile.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=7C3AED&height=200&section=header&text=GameHub&fontSize=64&fontColor=ffffff&desc=Minha%20Biblioteca%20Gamer&descSize=22&descAlignY=68" alt="GameHub" width="100%" />
 
-## O que o app faz
+![React Native](https://img.shields.io/badge/React_Native-7C3AED?style=for-the-badge&logo=react&logoColor=white)
+![Expo](https://img.shields.io/badge/Expo-0A091C?style=for-the-badge&logo=expo&logoColor=A78BFA)
+![JavaScript](https://img.shields.io/badge/JavaScript-6D28D9?style=for-the-badge&logo=javascript&logoColor=white)
+![React Navigation](https://img.shields.io/badge/React_Navigation-4C1D95?style=for-the-badge&logo=react&logoColor=white)
 
-Navegação por abas (Início, Jogos, Favoritos, Comunidade e Perfil), seguindo o protótipo de interface do GameHub.
+**🎮 Descubra. Jogue. Conecte-se. 🎮**
 
-- **Início:** banner de boas-vindas, resumo da biblioteca, carrossel "Jogos em Destaque" (os mais bem avaliados), convite para a comunidade e "Jogando agora".
-- **Jogos:** lista de todos os jogos em cards, busca pelo nome e filtro por status (Todos, Quero jogar, Jogando, Zerados). O botão "Adicionar" abre o cadastro.
-- **Detalhes:** capa grande, desenvolvedora, nota, gênero e plataforma, botão de favoritar, descrição com "Ver mais" e alteração do status do jogo.
-- **Favoritos:** jogos marcados com o coração, em qualquer tela de detalhes.
-- **Comunidade:** feed com publicações (curtir, comentar, compartilhar, excluir as suas e marcar um jogo), grupos para entrar e sair e jogadores para seguir.
-- **Perfil:** foto (galeria ou câmera), nome, @usuário, bio, jogo favorito, plataformas, números da biblioteca, conquistas e configurações. A tela **Editar perfil** altera tudo isso e o perfil fica salvo no aparelho.
-- **Adicionar jogo:** formulário com validação para cadastrar um novo jogo, que aparece no topo da lista.
+</div>
 
-Os dados são locais (`data/jogos.js`), sem API e sem login. A lista de jogos fica na memória (ao fechar o app, volta ao estado inicial); o perfil é salvo no aparelho com AsyncStorage.
+---
 
-## Requisitos da disciplina
+## 🟣 Descrição
+Aplicativo mobile feito com **React Native e Expo** para organizar a biblioteca pessoal de videogames. É possível buscar e filtrar jogos, ver os detalhes de cada um, favoritar, mudar o status (*Quero jogar*, *Jogando*, *Zerado*), cadastrar novos jogos e acompanhar uma área de comunidade e perfil.
+
+## 👾 Aluno
+**Giovanna Maria Pereira** — RGM **46228888**
+
+## 📱 Telas
+
+| Tela | O que faz |
+| :--- | :--- |
+| 🏠 **Início** | Banner de boas-vindas, resumo da biblioteca, carrossel de jogos em destaque (os mais bem avaliados), novidades e "Jogando agora". |
+| 🕹️ **Jogos** | Lista de todos os jogos em cards, com busca pelo nome e filtro por status. O botão "Adicionar" abre o cadastro. |
+| 🔍 **Detalhes** | Capa, desenvolvedora, nota, gênero, plataforma, descrição com "Ver mais", favoritar e alteração do status. Recebe o jogo por parâmetro de navegação. |
+| 💜 **Favoritos** | Jogos marcados com o coração. |
+| 💬 **Comunidade** | Feed de publicações (curtir, comentar, excluir), grupos e jogadores. |
+| 👤 **Perfil** | Foto, nome, bio, jogo favorito, números da biblioteca e conquistas. |
+| ✏️ **Editar perfil** | Altera os dados do perfil, que ficam salvos no aparelho. |
+| ➕ **Adicionar jogo** | Cadastro de novo jogo com validação dos campos. |
+
+## 🗄️ Fonte de dados
+Dados locais em JSON/objetos JavaScript (`data/jogos.js`, `data/novidades.js`, `data/comunidade.js`), sem login.
+
+As capas dos jogos são carregadas por URL (imagens da Steam e, quando necessário, a API pública da Wikipédia: `https://en.wikipedia.org/api/rest_v1/page/summary/`). Sem internet, o app mostra um bloco colorido com as iniciais do jogo. O perfil é salvo com AsyncStorage.
+
+## ✅ Onde estão os requisitos
 
 | Requisito | Onde está |
-| --- | --- |
-| Componentização | `components/` (Abertura, ArteCapa, Avatar, BannerHero, Botao, Cabecalho, CampoTexto, CapaJogo, CardComunidade, CardDestaque, CardJogo, CardNovidade, EstadoVazio, EtiquetaStatus, Indicador, Logo, Nota, SecaoTitulo, SeletorStatus) |
-| Props e callbacks | `aoPressionar`, `aoSelecionar`, `aoAlterarStatus`, `aoAlternarFavorito` e `aoAdicionar` |
-| `useState` | lista de jogos (App); carregando (Início); busca e filtro (Jogos); formulário e erros (Formulario); texto expandido (Detalhes); falha de imagem (CapaJogo) |
-| `useEffect` | `screens/Inicio.js` (temporizador de carregamento, com limpeza), `components/BannerHero.js` (`setInterval` com `clearInterval`), `screens/Jogos.js` (aplica o filtro recebido pela navegação) e `App.js` (carrega o perfil salvo) |
-| Navegação | `App.js`: abas (`@react-navigation/bottom-tabs`) dentro de um Stack com as telas Detalhes, Formulario e EditarPerfil, usando `navigation.navigate('Detalhes', { jogo })` |
-| Interface | `StyleSheet.create`, tema único em `constants/tema.js`, indicador de carregamento, erros de formulário e avisos de lista vazia |
+| :--- | :--- |
+| 🧩 **Componentes** | `components/` (19 componentes próprios, como `CardJogo`, `CapaJogo`, `Botao`, `SeletorStatus`, `EtiquetaStatus`, `CampoTexto`, `BannerHero`) |
+| 📨 **Props com callback** | `CardJogo` recebe `aoPressionar`; `SeletorStatus` recebe `aoSelecionar`; `Detalhes` recebe `aoAlterarStatus` e `aoAlternarFavorito`; `Formulario` recebe `aoAdicionar`. As funções são definidas em `App.js` |
+| 🧠 **useState** | Lista de jogos em `App.js`; busca e filtro em `screens/Jogos.js`; campos e erros em `screens/Formulario.js`; texto expandido em `screens/Detalhes.js` |
+| ⚡ **useEffect** | `screens/Inicio.js` (temporizador de carregamento, com limpeza); `screens/Jogos.js` (aplica o filtro recebido pela navegação); `components/BannerHero.js` (`setInterval` com `clearInterval`); `App.js` (carrega o perfil salvo) |
+| 🧭 **Navegação com parâmetros** | `App.js` (abas e Stack); `navigation.navigate('Detalhes', { jogo })` em `screens/Jogos.js`, `Inicio.js` e `Favoritos.js`; `navigation.navigate('Jogos', { filtro })` em `screens/Inicio.js`. Os parâmetros são lidos em `route.params` |
 
-## Estrutura
+## 🎬 Vídeo de demonstração
+▶️ [`demo/demo.mp4`](demo/demo.mp4)
 
-```
-gamehub/
-├── App.js
-├── assets/
-│   ├── logo.png          (logo completa, fundo transparente)
-│   ├── logo-icone.png    (só o ícone, fundo transparente)
-│   └── icon.png          (ícone do app, 1024x1024)
-├── components/
-├── constants/
-│   └── tema.js
-├── data/
-│   └── jogos.js
-├── screens/
-│   ├── Inicio.js
-│   ├── Jogos.js
-│   ├── Favoritos.js
-│   ├── Comunidade.js
-│   ├── Perfil.js
-│   ├── Detalhes.js
-│   └── Formulario.js
-├── demo/
-│   └── demo.mp4
-└── README.md
-```
-
-## Como rodar
+## 🚀 Como executar
 
 ```bash
-npx create-expo-app@latest gamehub --template blank
-cd gamehub
-npx expo install @react-navigation/native @react-navigation/native-stack @react-navigation/bottom-tabs react-native-screens react-native-safe-area-context expo-linear-gradient expo-image-picker @react-native-async-storage/async-storage
-```
-
-Copie os arquivos deste projeto para dentro da pasta (substituindo `App.js`) e rode:
-
-```bash
+npm install
 npx expo start
 ```
 
-Escaneie o QR Code com o app Expo Go.
+Escaneie o QR Code com o app **Expo Go** no celular.
 
-Para usar a logo como ícone e na tela de abertura, ajuste o `app.json`:
+<div align="center">
 
-```json
-{
-  "expo": {
-    "icon": "./assets/icon.png",
-    "splash": { "image": "./assets/logo.png", "resizeMode": "contain", "backgroundColor": "#0A091C" },
-    "userInterfaceStyle": "dark"
-  }
-}
-```
+<img src="https://capsule-render.vercel.app/api?type=waving&color=7C3AED&height=120&section=footer" alt="" width="100%" />
 
-No Expo Snack, adicione as mesmas dependências no `package.json` do Snack e crie as pastas e arquivos com os mesmos nomes (inclusive as imagens da pasta `assets`).
-
-## Capas dos jogos
-
-As capas são carregadas da internet (imagens da Steam, em formato vertical, com a imagem horizontal como segunda opção). Minecraft e Valorant não estão na Steam, então têm uma capa desenhada no próprio app (`components/ArteCapa.js`). Quando nenhuma imagem carrega, o app mostra um bloco colorido com as iniciais do jogo. Para trocar ou incluir uma capa, preencha o campo `capa` em `data/jogos.js` com uma URL (ou uma lista de URLs, que são tentadas na ordem).
-
-## Logo
-
-`assets/logo.png` e `assets/logo-icone.png` têm fundo transparente e foram pensadas para fundos escuros (o texto "Game" é branco).
+</div>
