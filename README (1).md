@@ -48,7 +48,9 @@ As capas dos jogos são carregadas por URL (imagens da Steam e, quando necessár
 | 🧭 **Navegação com parâmetros** | `App.js` (abas e Stack); `navigation.navigate('Detalhes', { jogo })` em `screens/Jogos.js`, `Inicio.js` e `Favoritos.js`; `navigation.navigate('Jogos', { filtro })` em `screens/Inicio.js`. Os parâmetros são lidos em `route.params` |
 
 ## 🎬 Vídeo de demonstração
-▶️ [`demo/demo.mp4`](demo/demo.mp4)
+▶️ **Assistir no YouTube:** [https://youtube.com/shorts/KpWruLo7eqU](https://youtube.com/shorts/KpWruLo7eqU)
+
+📁 **Arquivo no repositório:** [`demo/demo.mp4`](demo/demo.mp4) (o GitHub não toca vídeos grandes na página; use o botão *Download*)
 
 ## 🚀 Como executar
 
