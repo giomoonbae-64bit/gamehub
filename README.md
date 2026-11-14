@@ -61,6 +61,8 @@ npx expo start
 
 Escaneie o QR Code com o app **Expo Go** no celular.
 
+> 📌 Projeto criado com **Expo SDK 58**. Use a versão mais recente do app Expo Go.
+
 <div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=7C3AED&height=120&section=footer" alt="" width="100%" />
